@@ -7,4 +7,4 @@ Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, 
  -->
 
 <?php
-require_once __DIR__ . '/Models/products.php';
+require_once __DIR__ . '/Models/Product.php';

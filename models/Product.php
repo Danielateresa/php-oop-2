@@ -9,22 +9,30 @@ class Product
         $this->price = $price;
         $this->category = $category;
     }
-}
 
-
-//categorie prodotti
-class Category
-{
-    public function __construct(public String $name)
+    public function getName()
     {
-        $this->name = $name;
+        return $this->name;
     }
 }
 
 
+//categorie prodotti
+/* class Category
+{
+    public function __construct(public String $type)
+    {
+        $this->type = $type;
+    }
+} */
+
+/* $Dogs = new Category ('Dogs');
+$Cats = new Category ('Cats');
+ */
+
 
 //-----------classi figlie di prodotti, ereditano nome, prezzo, categoria
-class Food extends Product
+/* class Food extends Product
 {
     public function __construct(public String $expiryDate, public int $weight)
     {
@@ -37,9 +45,12 @@ class Game extends Product
 }
 class Kennel extends Product
 {
-}
+} */
 
 
 //db prodotti
-$dogTreat = new Product('Good Treat', 60, new Category('Dog'));
-var_dump($dogTreat->$dogTreat);
+$dogTreat = new Product('Good Treat', 60, 'Dog');
+/* var_dump($dogTreat->name);
+var_dump($dogTreat->price);
+var_dump($dogTreat->category); */
+var_dump($dogTreat->getName());
