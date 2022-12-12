@@ -11,34 +11,8 @@ class Product
     }
 }
 
-class Food
-{
-    public function __construct(public String $name, public int $price, public array $categories)
-    {
-        $this->name = $name;
-        $this->price = $price;
-        $this->categories = $categories;
-    }
-}
-class Game
-{
-    public function __construct(public String $name, public int $price, public array $categories)
-    {
-        $this->name = $name;
-        $this->price = $price;
-        $this->categories = $categories;
-    }
-}
-class Kennel
-{
-    public function __construct(public String $name, public int $price, public array $categories)
-    {
-        $this->name = $name;
-        $this->price = $price;
-        $this->categories = $categories;
-    }
-}
 
+//categorie prodotti
 class Category
 {
     public function __construct(public String $name)
@@ -47,8 +21,20 @@ class Category
     }
 }
 
-//categorie prodotti
 $categories = [
     new Category('Cani'),
     new Category('Gatti')
 ];
+
+
+
+//-----------classi figlie di prodotti, ereditano nome, prezzo, categoria
+class Food extends Product
+{
+}
+class Game extends Product
+{
+}
+class Kennel extends Product
+{
+}
