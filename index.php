@@ -15,8 +15,8 @@ require_once __DIR__ . './Models/Game.php';
 $products =[
 
     new Game('Fresbee', 6, new Category('Dog'), 'yellow', 'plastic'),
-    new Food('Good Treat', 60, new Category('Dog'), '15/12/2022', 50),
-    new Food('Meow protein Treat', 80, new Category('Cat'), '30/12/2025', 50)
+    new Food('Good Treat', 60, new Category('Dog'), '15/12/2022', 20),
+    new Food('Meow protein Treat', 80, new Category('Cat'), '30/12/2025', 10)
 ];
 
 ?>
@@ -46,11 +46,20 @@ $products =[
                 <p>Product name: <?php echo $product->getName() ?></p>
                 <p>Price: <?php echo $product->price ?> €</p>
                 <p>Specific for: <?php echo $product->getCategory()->type ?></p>
+                <!-- proprietà base -->
+
+
                 <?php if ($product->weight && $product->expiryDate) {
                     ?><p>Weight: <?php echo $product->weight?> kg</p>
                 <p>Expiry date: <?php echo $product->expiryDate?></p>
                 <?php } ?>
+                <!-- proprietà food -->
 
+                <?php if ($product->color && $product->material) {
+                    ?><p>Color: <?php echo $product->color?> kg</p>
+                <p>Material: <?php echo $product->material?></p>
+                <?php } ?>
+                <!-- proprietà game -->
 
             </div>
             <?php endforeach; ?>
