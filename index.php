@@ -64,7 +64,6 @@ img {
                         <p>Specific for: <?php echo $product->getCategory()->type ?></p>
                         <!-- proprietà base -->
 
-
                         <?php if ($product->weight && $product->expiryDate) {
                             ?><p>Weight: <?php echo $product->weight?> kg</p>
                         <p>Expiry date: <?php echo $product->expiryDate?></p>
@@ -72,13 +71,13 @@ img {
                         <!-- proprietà food -->
 
                         <?php if ($product->color && $product->material) {
-                            ?><p>Color: <?php echo $product->color?> kg</p>
+                            ?><p>Color: <?php echo $product->color?></p>
                         <p>Material: <?php echo $product->material?></p>
                         <?php } ?>
                         <!-- proprietà game -->
 
                         <?php if ($product->size && $product->filling) {
-                            ?><p>Size: <?php echo $product->size?> kg</p>
+                            ?><p>Size: <?php echo $product->size?> cm</p>
                         <p>Filling: <?php echo $product->filling?></p>
                         <?php } ?>
                         <!-- proprietà kennel -->
