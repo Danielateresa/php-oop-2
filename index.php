@@ -46,8 +46,10 @@ $products =[
                 <p>Product name: <?php echo $product->getName() ?></p>
                 <p>Price: <?php echo $product->price ?> €</p>
                 <p>Specific for: <?php echo $product->getCategory()->type ?></p>
-                <?php if ($product->weight) {
-                    ?><p>Weight: <?php echo $product->weight?> kg</p><?php } ?>
+                <?php if ($product->weight && $product->expiryDate) {
+                    ?><p>Weight: <?php echo $product->weight?> kg</p>
+                <p>Expiry date: <?php echo $product->expiryDate?></p>
+                <?php } ?>
 
 
             </div>
