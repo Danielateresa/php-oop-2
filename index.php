@@ -10,13 +10,16 @@ Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, 
 require_once __DIR__ . '/Models/Product.php';
 require_once __DIR__ . './Models/Food.php';
 require_once __DIR__ . './Models/Game.php';
+require_once __DIR__ . './Models/Kennel.php';
 
 
 $products =[
 
     new Game('Fresbee', 6, new Category('Dog'), 'yellow', 'plastic'),
+    new Game('Mouse', 4, new Category('Cat'), 'grey', 'fur and plastic'),
     new Food('Good Treat', 60, new Category('Dog'), '15/12/2022', 20),
-    new Food('Meow protein Treat', 80, new Category('Cat'), '30/12/2025', 10)
+    new Food('Meow protein Treat', 80, new Category('Cat'), '30/12/2025', 10),
+    new Kennel('Pillow', 70, new Category('Dog'), '50 x 90', 'goose feather'),
 ];
 
 ?>
@@ -58,6 +61,12 @@ $products =[
                 <?php if ($product->color && $product->material) {
                     ?><p>Color: <?php echo $product->color?> kg</p>
                 <p>Material: <?php echo $product->material?></p>
+                <?php } ?>
+                <!-- proprietà game -->
+
+                <?php if ($product->size && $product->filling) {
+                    ?><p>Size: <?php echo $product->size?> kg</p>
+                <p>Filling: <?php echo $product->filling?></p>
                 <?php } ?>
                 <!-- proprietà game -->
 
