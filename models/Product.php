@@ -6,10 +6,11 @@ require_once __DIR__ . './Category.php';
 //classe padre prodotti
 class Product
 {
-    public function __construct(public String $name, public int $price, public Category $category)
+    public function __construct(public String $name, public int $price, public String $foto, public Category $category)
     {
         $this->name = $name;
         $this->price = $price;
+        $this->foto = $foto;
         $this->category = $category;
     }
 

@@ -15,11 +15,11 @@ require_once __DIR__ . './Models/Kennel.php';
 
 $products =[
 
-    new Game('Fresbee', 6, new Category('Dog'), 'yellow', 'plastic'),
-    new Game('Mouse', 4, new Category('Cat'), 'grey', 'fur and plastic'),
-    new Food('Good Treat', 60, new Category('Dog'), '15/12/2022', 20),
-    new Food('Meow protein Treat', 80, new Category('Cat'), '30/12/2025', 10),
-    new Kennel('Pillow', 70, new Category('Dog'), '50 x 90', 'goose feather'),
+    new Game('Fresbee', 6, 'fresbee.png', new Category('Dog'), 'yellow', 'plastic'),
+    new Game('Mouse', 4, 'mouse.jpg', new Category('Cat'), 'grey', 'fur and plastic'),
+    new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2022', 20),
+    new Food('Meow protein Treat', 80, 'cat_treat.jpg', new Category('Cat'), '30/12/2025', 10),
+    new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
 ];
 
 ?>
@@ -39,37 +39,47 @@ $products =[
         integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
 
 </head>
+<style>
+img {
+    max-height: 150px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+</style>
 
 <body>
 
     <div class="container">
         <div class="row">
             <?php foreach ($products as $product) :?>
-            <div class="col-4">
-                <p>Product name: <?php echo $product->getName() ?></p>
-                <p>Price: <?php echo $product->price ?> €</p>
-                <p>Specific for: <?php echo $product->getCategory()->type ?></p>
-                <!-- proprietà base -->
+            <div class="col-4 mb-4">
+                <div class="card">
+                    <img class="w-100" src="./assets/img/<?php echo $product->foto ?>"
+                        alt="<?php echo $product->getName() ?>">
+                    <p>Product name: <?php echo $product->getName() ?></p>
+                    <p>Price: <?php echo $product->price ?> €</p>
+                    <p>Specific for: <?php echo $product->getCategory()->type ?></p>
+                    <!-- proprietà base -->
 
 
-                <?php if ($product->weight && $product->expiryDate) {
-                    ?><p>Weight: <?php echo $product->weight?> kg</p>
-                <p>Expiry date: <?php echo $product->expiryDate?></p>
-                <?php } ?>
-                <!-- proprietà food -->
+                    <?php if ($product->weight && $product->expiryDate) {
+                        ?><p>Weight: <?php echo $product->weight?> kg</p>
+                    <p>Expiry date: <?php echo $product->expiryDate?></p>
+                    <?php } ?>
+                    <!-- proprietà food -->
 
-                <?php if ($product->color && $product->material) {
-                    ?><p>Color: <?php echo $product->color?> kg</p>
-                <p>Material: <?php echo $product->material?></p>
-                <?php } ?>
-                <!-- proprietà game -->
+                    <?php if ($product->color && $product->material) {
+                        ?><p>Color: <?php echo $product->color?> kg</p>
+                    <p>Material: <?php echo $product->material?></p>
+                    <?php } ?>
+                    <!-- proprietà game -->
 
-                <?php if ($product->size && $product->filling) {
-                    ?><p>Size: <?php echo $product->size?> kg</p>
-                <p>Filling: <?php echo $product->filling?></p>
-                <?php } ?>
-                <!-- proprietà game -->
-
+                    <?php if ($product->size && $product->filling) {
+                        ?><p>Size: <?php echo $product->size?> kg</p>
+                    <p>Filling: <?php echo $product->filling?></p>
+                    <?php } ?>
+                    <!-- proprietà kennel -->
+                </div>
             </div>
             <?php endforeach; ?>
         </div>
