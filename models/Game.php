@@ -2,9 +2,11 @@
 
 class Game extends Product
 {
-    public function __construct(public String $detail)
+    public function __construct($name, $price, $category, public String $color, public String $material)
     {
+        parent::__construct($name, $price, $category);
         //proprietà specifiche
-        $this->detail = $detail;
+        $this->color = $color;
+        $this->material = $material;
     }
 }

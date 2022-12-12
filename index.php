@@ -8,6 +8,17 @@ Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, 
 
 <?php
 require_once __DIR__ . '/Models/Product.php';
+require_once __DIR__ . './Models/Food.php';
+require_once __DIR__ . './Models/Game.php';
+
+
+$products =[
+
+    new Game('Fresbee', 6, new Category('Dog'), 'yellow', 'plastic'),
+    new Food('Good Treat', 60, new Category('Dog'), '15/12/2022', 50),
+    new Food('Meow protein Treat', 80, new Category('Cat'), '30/12/2025', 50)
+];
+
 ?>
 
 
@@ -34,9 +45,11 @@ require_once __DIR__ . '/Models/Product.php';
             <div class="col-4">
                 <p>Product name: <?php echo $product->getName() ?></p>
                 <p>Price: <?php echo $product->price ?> €</p>
-                <p>Specific for: <?php echo $product->category->type ?></p>
-                <p>Weight: <?php echo $product->specific->weight?> kg</p>
-                <p>expiry date: <?php echo $product->specific->expiryDate ?></p>
+                <p>Specific for: <?php echo $product->getCategory()->type ?></p>
+                <?php if ($product->weight) {
+                    ?><p>Weight: <?php echo $product->weight?> kg</p><?php } ?>
+
+
             </div>
             <?php endforeach; ?>
         </div>
