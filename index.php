@@ -48,37 +48,41 @@ img {
 </style>
 
 <body>
+    <h1 class="py-3 ps-2">Pet shop</h1>
 
     <div class="container">
         <div class="row">
             <?php foreach ($products as $product) :?>
             <div class="col-4 mb-4">
-                <div class="card">
-                    <img class="w-100" src="./assets/img/<?php echo $product->foto ?>"
+                <div class="card p-2">
+                    <img class="w-100 my-4" src="./assets/img/<?php echo $product->foto ?>"
                         alt="<?php echo $product->getName() ?>">
-                    <p>Product name: <?php echo $product->getName() ?></p>
-                    <p>Price: <?php echo $product->price ?> €</p>
-                    <p>Specific for: <?php echo $product->getCategory()->type ?></p>
-                    <!-- proprietà base -->
+
+                    <div class="product_details">
+                        <p>Product name: <?php echo $product->getName() ?></p>
+                        <p>Price: <?php echo $product->price ?> €</p>
+                        <p>Specific for: <?php echo $product->getCategory()->type ?></p>
+                        <!-- proprietà base -->
 
 
-                    <?php if ($product->weight && $product->expiryDate) {
-                        ?><p>Weight: <?php echo $product->weight?> kg</p>
-                    <p>Expiry date: <?php echo $product->expiryDate?></p>
-                    <?php } ?>
-                    <!-- proprietà food -->
+                        <?php if ($product->weight && $product->expiryDate) {
+                            ?><p>Weight: <?php echo $product->weight?> kg</p>
+                        <p>Expiry date: <?php echo $product->expiryDate?></p>
+                        <?php } ?>
+                        <!-- proprietà food -->
 
-                    <?php if ($product->color && $product->material) {
-                        ?><p>Color: <?php echo $product->color?> kg</p>
-                    <p>Material: <?php echo $product->material?></p>
-                    <?php } ?>
-                    <!-- proprietà game -->
+                        <?php if ($product->color && $product->material) {
+                            ?><p>Color: <?php echo $product->color?> kg</p>
+                        <p>Material: <?php echo $product->material?></p>
+                        <?php } ?>
+                        <!-- proprietà game -->
 
-                    <?php if ($product->size && $product->filling) {
-                        ?><p>Size: <?php echo $product->size?> kg</p>
-                    <p>Filling: <?php echo $product->filling?></p>
-                    <?php } ?>
-                    <!-- proprietà kennel -->
+                        <?php if ($product->size && $product->filling) {
+                            ?><p>Size: <?php echo $product->size?> kg</p>
+                        <p>Filling: <?php echo $product->filling?></p>
+                        <?php } ?>
+                        <!-- proprietà kennel -->
+                    </div>
                 </div>
             </div>
             <?php endforeach; ?>
