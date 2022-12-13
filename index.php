@@ -16,12 +16,15 @@ require_once __DIR__ . '/Models/Kennel.php';
 
 $products =[
 
-    new Game('Fresbee', 6, 'fresbee.png', new Category('Dog'), 'yellow', 'plastic'),
-    new Game('Mouse', 4, 'mouse.jpg', new Category('Cat'), 'grey', 'fur and plastic'),
-    new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2023', 20),
-    new Food('Meow protein Treat', 80, 'cat_treat.jpg', new Category('Cat'), '30/12/2025', 10),
-    new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
+    $fresbee = new Game('Fresbee', 6, 'fresbee.png', new Category('Dog'), 'plastic'),
+    $mouse = new Game('Mouse', 4, 'mouse.jpg', new Category('Cat'), 'fur and plastic'),
+    $goodTreat = new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2023', 20),
+    $meow = new Food('Meow protein Treat', 80, 'cat_treat.jpg', new Category('Cat'), '30/12/2025', 10),
+    $kennell = new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
 ];
+$fresbee->setColor('yellow');
+$kennell->setColor('beige');
+$mouse->setColor('grey');
 
 ?>
 
@@ -55,6 +58,10 @@ tag {
     color: white;
     padding: 0 5px;
 }
+
+.row {
+    height: 480px;
+}
 </style>
 
 <body>
@@ -63,8 +70,8 @@ tag {
     <div class="container">
         <div class="row">
             <?php foreach ($products as $product) :?>
-            <div class="col-4 mb-4">
-                <div class="card p-2 position-relatve">
+            <div class="col-4 mb-4 h-100">
+                <div class="card p-2 position-relatve h-100">
                     <img class="w-100 my-4" src="./assets/img/<?php echo $product->getFoto() ?>"
                         alt="<?php echo $product->getName() ?>">
 
@@ -74,24 +81,21 @@ tag {
                         <p>Specific for: <?php echo $product->getCategory()->type ?></p>
                         <!-- proprietà base -->
 
-                        <?php if ($product->weight && $product->expiryDate) {
-                            ?><p>Weight: <?php echo $product->getWeight()?> kg</p>
-                        <p>Expiry date: <?php echo $product->getExpiryDate()?></p>
-                        <tag class="available"><?php echo $product->fastShipment()?></tag>
-                        <?php } ?>
-                        <!-- proprietà food -->
-
-                        <?php if ($product->color && $product->material) {
-                            ?><p>Color: <?php echo $product->getColor()?></p>
-                        <p>Material: <?php echo $product->getMaterial()?></p>
-                        <?php } ?>
-                        <!-- proprietà game -->
-
-                        <?php if ($product->size && $product->filling) {
-                            ?><p>Size: <?php echo $product->getSize()?> cm</p>
-                        <p>Filling: <?php echo $product->getFilling()?></p>
-                        <?php } ?>
-                        <!-- proprietà kennel -->
+                        <?php if ($product->weight) {
+                            ?><p>Weight: <?php echo $product->getWeight()?> kg</p><?php } ?>
+                        <?php if ($product->expiryDate) {
+                            ?><p>Expiry date: <?php echo $product->getExpiryDate()?></p><?php } ?>
+                        <?php if ($product->fastShipment) {
+                            ?><tag class="available"><?php echo $product->fastShipment()?></tag><?php } ?>
+                        <?php if ($product->color) {
+                            ?><p>Color: <?php echo $product->getColor()?></p><?php } ?>
+                        <?php if ($product->material) {
+                            ?><p>Material: <?php echo $product->getMaterial()?></p><?php } ?>
+                        <?php if ($product->size) {
+                            ?><p>Size: <?php echo $product->getSize()?> cm</p><?php } ?>
+                        <?php if ($product->filling) {
+                            ?><p>Filling: <?php echo $product->getFilling()?></p><?php } ?>
+                        <!-- classi specifiche condizionali-->
                     </div>
                 </div>
             </div>
