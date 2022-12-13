@@ -1,9 +1,9 @@
 <?php
 
 //mostra un semplice tag per segnalare la spedizione veloce sui food
-trait available
+trait fastShipment
 {
-    public function availableMess()
+    public function fastShipment()
     {
         echo 'fast shipment';
     }

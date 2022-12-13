@@ -20,7 +20,7 @@ $products =[
     new Game('Mouse', 4, 'mouse.jpg', new Category('Cat'), 'grey', 'fur and plastic'),
     new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2023', 20),
     new Food('Meow protein Treat', 80, 'cat_treat.jpg', new Category('Cat'), '30/12/2025', 10),
-    new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
+   $kennel= new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
 ];
 
 ?>
@@ -77,7 +77,7 @@ tag {
                         <?php if ($product->weight && $product->expiryDate) {
                             ?><p>Weight: <?php echo $product->weight?> kg</p>
                         <p>Expiry date: <?php echo $product->expiryDate?></p>
-                        <tag class="available"><?php echo $product->availableMess()?></tag>
+                        <tag class="available"><?php echo $product->fastShipment()?></tag>
                         <?php } ?>
                         <!-- proprietà food -->
 
