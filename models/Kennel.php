@@ -9,4 +9,12 @@ class Kennel extends Product
         $this->size = $size;
         $this->filling = $filling;
     }
+    public function getSize()
+    {
+        return $this->size;
+    }
+    public function getFilling()
+    {
+        return $this->filling;
+    }
 }

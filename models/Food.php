@@ -13,4 +13,12 @@ class Food extends Product
         $this->expiryDate = $expiryDate;
         $this->weight = $weight;
     }
+    public function getExpiryDate()
+    {
+        return $this->expiryDate;
+    }
+    public function getWeight()
+    {
+        return $this->weight;
+    }
 }

@@ -75,8 +75,8 @@ tag {
                         <!-- proprietà base -->
 
                         <?php if ($product->weight && $product->expiryDate) {
-                            ?><p>Weight: <?php echo $product->weight?> kg</p>
-                        <p>Expiry date: <?php echo $product->expiryDate?></p>
+                            ?><p>Weight: <?php echo $product->getWeight()?> kg</p>
+                        <p>Expiry date: <?php echo $product->getExpiryDate()?></p>
                         <tag class="available"><?php echo $product->fastShipment()?></tag>
                         <?php } ?>
                         <!-- proprietà food -->
@@ -88,8 +88,8 @@ tag {
                         <!-- proprietà game -->
 
                         <?php if ($product->size && $product->filling) {
-                            ?><p>Size: <?php echo $product->size?> cm</p>
-                        <p>Filling: <?php echo $product->filling?></p>
+                            ?><p>Size: <?php echo $product->getSize()?> cm</p>
+                        <p>Filling: <?php echo $product->getFilling()?></p>
                         <?php } ?>
                         <!-- proprietà kennel -->
                     </div>
