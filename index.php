@@ -8,16 +8,17 @@ Stampiamo delle card contenenti i dettagli dei prodotti, come immagine, titolo, 
 
 <?php
 require_once __DIR__ . '/Models/Product.php';
-require_once __DIR__ . './Models/Food.php';
-require_once __DIR__ . './Models/Game.php';
-require_once __DIR__ . './Models/Kennel.php';
+require_once __DIR__ . '/Models/Food.php';
+require_once __DIR__ . '/Models/Game.php';
+require_once __DIR__ . '/Models/Kennel.php';
+
 
 
 $products =[
 
     new Game('Fresbee', 6, 'fresbee.png', new Category('Dog'), 'yellow', 'plastic'),
     new Game('Mouse', 4, 'mouse.jpg', new Category('Cat'), 'grey', 'fur and plastic'),
-    new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2022', 20),
+    new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2023', 20),
     new Food('Meow protein Treat', 80, 'cat_treat.jpg', new Category('Cat'), '30/12/2025', 10),
     new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
 ];
@@ -45,6 +46,15 @@ img {
     aspect-ratio: 1/1;
     object-fit: contain;
 }
+
+tag {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: green;
+    color: white;
+    padding: 0 5px;
+}
 </style>
 
 <body>
@@ -54,7 +64,7 @@ img {
         <div class="row">
             <?php foreach ($products as $product) :?>
             <div class="col-4 mb-4">
-                <div class="card p-2">
+                <div class="card p-2 position-relatve">
                     <img class="w-100 my-4" src="./assets/img/<?php echo $product->foto ?>"
                         alt="<?php echo $product->getName() ?>">
 
@@ -67,6 +77,7 @@ img {
                         <?php if ($product->weight && $product->expiryDate) {
                             ?><p>Weight: <?php echo $product->weight?> kg</p>
                         <p>Expiry date: <?php echo $product->expiryDate?></p>
+                        <tag class="available"><?php echo $product->availableMess()?></tag>
                         <?php } ?>
                         <!-- proprietà food -->
 
