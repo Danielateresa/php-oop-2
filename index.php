@@ -20,7 +20,7 @@ $products =[
     new Game('Mouse', 4, 'mouse.jpg', new Category('Cat'), 'grey', 'fur and plastic'),
     new Food('Good Treat', 60, 'dog_treat.jpg', new Category('Dog'), '15/12/2023', 20),
     new Food('Meow protein Treat', 80, 'cat_treat.jpg', new Category('Cat'), '30/12/2025', 10),
-   $kennel= new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
+    new Kennel('Pillow', 70, 'pillow.jpg', new Category('Dog'), '50 x 90', 'goose feather')
 ];
 
 ?>
@@ -65,12 +65,12 @@ tag {
             <?php foreach ($products as $product) :?>
             <div class="col-4 mb-4">
                 <div class="card p-2 position-relatve">
-                    <img class="w-100 my-4" src="./assets/img/<?php echo $product->foto ?>"
+                    <img class="w-100 my-4" src="./assets/img/<?php echo $product->getFoto() ?>"
                         alt="<?php echo $product->getName() ?>">
 
                     <div class="product_details">
                         <p>Product name: <?php echo $product->getName() ?></p>
-                        <p>Price: <?php echo $product->price ?> €</p>
+                        <p>Price: <?php echo $product->getPrice() ?> €</p>
                         <p>Specific for: <?php echo $product->getCategory()->type ?></p>
                         <!-- proprietà base -->
 
@@ -82,8 +82,8 @@ tag {
                         <!-- proprietà food -->
 
                         <?php if ($product->color && $product->material) {
-                            ?><p>Color: <?php echo $product->color?></p>
-                        <p>Material: <?php echo $product->material?></p>
+                            ?><p>Color: <?php echo $product->getColor()?></p>
+                        <p>Material: <?php echo $product->getMaterial()?></p>
                         <?php } ?>
                         <!-- proprietà game -->
 

@@ -18,10 +18,17 @@ class Product
     {
         return $this->name;
     }
-
     public function getCategory()
     {
         return $this->category;
+    }
+    public function getPrice()
+    {
+        return $this->price;
+    }
+    public function getFoto()
+    {
+        return $this->foto;
     }
 }
 
